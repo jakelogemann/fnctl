@@ -1,0 +1,1 @@
+Yes. I agree this module is horrific. Its also terribly out of date and very buggy. PRs happily accepted.

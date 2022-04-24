@@ -1,0 +1,11 @@
+/hardware-configuration.nix
+result
+**/flake.lock
+*.qcow2
+*.swp
+*.swo
+/vendor
+/book
+/public
+.DS_Store
+*~
