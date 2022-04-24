@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-config.json
+blank_issues_enabled: true
+contact_links:
+  - name: FnCtl.io
+    url: https://fnctl.io
+    about: Also known as "The book".

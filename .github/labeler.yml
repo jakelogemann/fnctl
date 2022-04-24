@@ -1,0 +1,7 @@
+---
+book: ["book/*", "book/**/*"]
+configs: ["configs/*", "configs/**/*"]
+lib: ["lib/*", "lib/**/*"]
+modules: ["modules/*", "modules/**/*"]
+pkgs: ["pkgs/*", "pkgs/**/*"]
+flake: ["flake.nix", "flake.lock"]

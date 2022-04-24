@@ -1,0 +1,82 @@
+name: main
+concurrency: "${{ github.head_ref || github.run_id || github.ref_name || github.ref }}"
+on:
+  workflow_dispatch:
+  workflow_call:
+  push: { branches: [main] }
+  pull_request: 
+    branches: [main]
+    types:
+      - ready_for_review
+      - review_requested
+
+env:
+  IS_FORK: ${{ github.repository != 'fnctl/fnctl' }}
+  IS_REMOTE: ${{ github.repository_owner != 'fnctl' }}
+
+jobs:
+
+  check:
+    if: ${{ !contains('issues;pull_requests;', github.event_name) }}
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: checkout the code
+      uses: actions/checkout@v3
+
+    - name: install nix
+      uses: ./.github/actions/install-nix
+      # with: { extra_nix_config: "access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}" }
+
+    - name: nix flake check
+      run: nix flake check --keep-going
+
+    - name: upload result(?)
+      if: ${{ env.IS_REMOTE == 'false' }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: "${{ github.job }}@${{ github.sha }}"
+        path: "result/**"
+        if-no-files-found: ignore
+
+    - name: apply labels (if applicable)
+      uses: actions/labeler@v4
+      if: "${{ github.event_name == 'pull_requests' }}"
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        sync-labels: true
+
+  hygine:
+    if: ${{ contains('issues;pull_requests;workflow_call;workflow_dispatch;schedule;', github.event_name) }}
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: acknowledge issues and pull requests upon receipt!
+      if: ${{ !always() && contains('issues;pull_requests;', github.event_name) }}
+      uses: actions/first-interaction@v1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        pr-message: "Hey! Thanks for the PR to @fnctl!"
+        issue-message: "Hey! Thanks for the Issue! We'll get right on that and get back to you."
+    - name: close stale issues & pull-requests (when triggered, explicitly).
+      uses: actions/stale@v5.0.0
+      if: ${{ contains('workflow_call;workflow_dispatch;schedule;', github.event_name) }}
+      with:
+        # Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        # The message to post on the issue when tagging it. If none provided, will not mark iusses stale.
+        # stale-issue-message: # optional
+        # The message to post on the pr when tagging it. If none provided, will not mark prs stale.
+        # stale-pr-message: # optional
+        # The number of days old an issue can be before marking it stale
+        # days-before-stale: # optional, default is 60
+        # The number of days to wait to close an issue or pr after it being marked stale
+        # days-before-close: # optional, default is 7
+        # The label to apply when an issue is stale
+        # stale-issue-label: # optional, default is Stale
+        # The label to apply when a pr is stale
+        # stale-pr-label: # optional, default is Stale
+        # The maximum number of operations per run, used to control rate limiting
+        # operations-per-run: # optional, default is 30

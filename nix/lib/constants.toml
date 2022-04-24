@@ -1,0 +1,6 @@
+supportedSystems = [
+  "aarch64-linux",
+  "x86_64-linux",
+  # "x86_64-darwin", (no device to test on (-_-))
+  # "aarch64-darwin" (no device to test on (-_-))
+]

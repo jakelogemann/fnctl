@@ -1,0 +1,26 @@
+{
+  "editor.formatOnPaste": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnType": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/*.swp": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    ".direnv": true,
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "B4dM4n.nixpkgs-fmt",
+  },
+}
