@@ -3,7 +3,7 @@ authors = ["Jake"]
 language = "en"
 multilingual = false
 src = "docs"
-title = "dandruff"
+title = "FnCtl"
 
 [build]
 build-dir = "book"                # the directory where the output is placed
