@@ -1,4 +1,6 @@
-{ config, pkgs, lib, ... }: with lib; {
+/* currently can be built/used with:
+**   nixos-rebuild --install-bootloader -I nixos-config=$PWD/configs/vm-aarch64.nix <build|switch|dry-activate|etc...>
+*/ { config, pkgs, lib, ... }: with lib; {
   disabledModules = ["virtualisation/parallels-guest.nix"];
   imports = [ ../modules/parallels-guest.nix ];
 
