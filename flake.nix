@@ -47,9 +47,10 @@
       callPackage = system: (callPackageWith (specialArgs // (pkgsForSystem system)));
 
       mkModuleList = ext: concatLists [ 
-        [({ config, ... }: { 
+        [({ config, lib, pkgs, ... }: { 
             nixpkgs.overlays = builtins.attrValues self.overlays; 
             nixpkgs.config.allowUnfree = true; 
+            nix.package = lib.mkForce pkgs.nixUnstable;
         })]
         (builtins.attrValues self.nixosModules)
         ext
@@ -95,6 +96,11 @@
     nixosConfigurations.installer = self.lib.mkSystem {
       system = "x86_64-linux";
       modules = [ ./configs/installer.nix ];
+    };
+
+    nixosConfigurations.vm-aarch64 = self.lib.mkSystem {
+      system = "aarch64-linux";
+      modules = [ ./configs/vm-aarch64.nix ];
     };
   };
 }

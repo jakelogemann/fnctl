@@ -2,7 +2,6 @@
 
   imports = [ 
     ./network.nix 
-    ./dnscrypt.nix 
   ];
 
   options.digitalocean = {
