@@ -2,8 +2,8 @@
 
 _Hi, friends._
 
-- Documentation can be found [here](./docs/SUMMARY.md).
+- Documentation can be found [here](./book/SUMMARY.md).
 
 ----
 
-![FnCtl OS](./docs/fnctlos-opengraph.png)
+![FnCtl OS](./book/fnctlos-opengraph.png)

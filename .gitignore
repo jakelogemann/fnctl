@@ -5,7 +5,6 @@ result
 *.swp
 *.swo
 /vendor
-/book
 /public
 .DS_Store
 *~
