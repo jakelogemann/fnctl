@@ -1,0 +1,14 @@
+{
+  "name": "devcontainer",
+  "remoteUser": "developer",
+  "image": "ghcr.io/lgmn-io/devcontainer:main",
+  "hostRequirements": {
+    "cpus": 1,
+    "memory": "512mb",
+    "storage": "1gb"
+  },
+  "codespaces": {},
+  "extensions": [
+    "asciidoctor.asciidoctor-vscode"
+  ]
+}
