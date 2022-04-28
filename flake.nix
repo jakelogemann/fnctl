@@ -73,10 +73,8 @@
 
     /* NOTE: packages are per system type. */ 
     packages = with self.lib; forEachSupportedSystem (system: {
-      osdk     = (callPackage system) ./pkgs/osdk/default.nix {};
       devShell = (callPackage system) ./pkgs/devShell.nix {};
       vim      = (callPackage system) ./pkgs/jlogemann/vim/default.nix {};
-      userland = (callPackage system) ./pkgs/userland/default.nix {};
     });
         
     apps = /* all apps exposed; per system. invoke with `nix run .#nvim` */
