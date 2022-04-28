@@ -56,7 +56,6 @@
           time      # Tool that runs programs and summarizes the system resources they use
           tmux      # Commonly used Terminal Multiplexor.
           tree      # Command to produce a depth indented directory listing
-          universal-ctags
           htop      # better alternative to "top" command.
           unzip     # An extraction utility for archives compressed in .zip format
           wget            # Tool for retrieving files using HTTP, HTTPS, and FTP

@@ -154,8 +154,10 @@
     lsd
     lshw
     lsof
+    neofetch
     netcat
     nettools
+    nixos-option
     pass
     pciutils
     ranger
@@ -168,7 +170,6 @@
     time
     tmux
     tree
-    universal-ctags
     unzip
     usbutils
     vault
@@ -178,10 +179,8 @@
     which
     whois
     wireguard-tools
-    neofetch
     yq
     zoxide
-    nixos-option
   ];
 }/*
 vim: et sts=2 ts=2
