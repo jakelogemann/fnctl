@@ -9,6 +9,9 @@
   },
   "codespaces": {},
   "extensions": [
-    "asciidoctor.asciidoctor-vscode"
-  ]
+	"bbenoist.Nix",
+	"bungcip.better-toml",
+	"redhat.vscode-yaml",
+	"aaron-bond.better-comments"
+]
 }
