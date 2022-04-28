@@ -47,7 +47,7 @@
   tmux      # Commonly used Terminal Multiplexor.
   tpm-tools # Trusted process module tools
   tree      # Command to produce a depth indented directory listing
-  universal-ctags
+  # universal-ctags
   htop      # better alternative to "top" command.
   unzip     # An extraction utility for archives compressed in .zip format
   usbutils  # Tools for working with USB devices, such as lsusb
@@ -56,6 +56,9 @@
   whois           # A client for the WHOIS protocol to query the owner of a domain name
   wireguard-tools # Tools for WireGuard secure network tunnel
   wirelesstools   # tools to manipulate wireless extensions
-
-  zoxide vifm vector vault terraform
+  zoxide 
+  vifm 
+  vector 
+  vault 
+  terraform
   ]

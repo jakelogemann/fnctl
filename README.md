@@ -6,4 +6,4 @@ _Hi, friends._
 
 ----
 
-![FnCtl OS](./book/fnctlos-opengraph.png)
+![FnCtl OS](./book/assets/banner.png)
