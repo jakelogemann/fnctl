@@ -4,6 +4,7 @@
   ];
 
   config = {
+    fnctl.enable = true;
     base.enable = true;
     base.gui.enable = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;

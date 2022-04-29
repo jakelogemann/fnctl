@@ -7,6 +7,8 @@
     ../modules/fnctl/default.nix
   ];
 
+  fnctl.enable = true;
+
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "nvme" "xhci_pci" "usbhid" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
@@ -23,8 +25,6 @@
   hardware.video.hidpi.enable = true;
   i18n.defaultLocale = "en_US.UTF-8";
   networking.hostName = "fnctl-os";
-  nix.extraOptions = "experimental-features = nix-command flakes";
-  nix.package = pkgs.nixUnstable;
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
   programs.gnupg.agent.enable = true;
