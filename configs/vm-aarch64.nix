@@ -184,6 +184,7 @@
     wireguard-tools
     yq
     zoxide
+    (writeShellScriptBin "fix-display" "${xorg.xrandr}/bin/xrandr --output Virtual-1 --auto")
   ];
 }/*
 vim: et sts=2 ts=2
