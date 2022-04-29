@@ -2,7 +2,10 @@
 **   nixos-rebuild --install-bootloader -I nixos-config=$PWD/configs/vm-aarch64.nix <build|switch|dry-activate|etc...>
 */ { config, pkgs, lib, ... }: with lib; {
   disabledModules = ["virtualisation/parallels-guest.nix"];
-  imports = [ ../modules/parallels-guest.nix ];
+  imports = [ 
+    ../modules/parallels-guest.nix 
+    ../modules/fnctl/default.nix
+  ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "nvme" "xhci_pci" "usbhid" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
