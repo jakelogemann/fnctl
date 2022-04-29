@@ -17,35 +17,15 @@
   fileSystems."/boot" = { device = "/dev/disk/by-label/boot"; fsType = "vfat"; };
   swapDevices = [ ];
   networking.interfaces.enp0s5.useDHCP = mkForce true;
-  console.earlySetup = true;
-  console.useXkbConfig = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
   hardware.pulseaudio.enable = true; 
   hardware.video.hidpi.enable = true;
-  i18n.defaultLocale = "en_US.UTF-8";
-  networking.hostName = "fnctl-os";
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupportedSystem = true;
-  programs.gnupg.agent.enable = true;
-  programs.gnupg.agent.enableSSHSupport = true;
-  programs.mtr.enable = true;
-  services.openssh.enable = false;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.permitRootLogin = "yes";
-  services.printing.enable = false;
   services.xserver.libinput.enable = true;
-  sound.enable = true;
   system.stateVersion = "22.05"; 
-  time.timeZone = "America/New_York";
-  users.users.root.initialPassword = "";
-  users.users.root.shell = pkgs.zsh;
   hardware.parallels.enable = true;
   hardware.parallels.autoMountShares = true;
   hardware.parallels.package = (config.boot.kernelPackages.callPackage ../pkgs/prl-tools.nix {});
-  virtualisation.docker.enable = true;
-  users.motd = "Welcome to FnCtl OS";
-
   services.xserver = {
     enable = true;
     desktopManager.wallpaper.mode = "scale";
@@ -58,7 +38,6 @@
     windowManager.i3.package = pkgs.i3-gaps;
     windowManager.i3.extraPackages = with pkgs; [ dmenu rofi arandr dex unclutter dunst alacritty nerdfonts i3blocks ];
   };
-  environment.variables.EDITOR = "vim";
 
   environment.systemPackages = with pkgs; [
     (vim_configurable.customize {
