@@ -91,9 +91,9 @@
 
     nixosModules = import ./modules/default.nix;
 
-    nixosConfigurations.installer = self.lib.mkSystem {
+    nixosConfigurations.iso = self.lib.mkSystem {
       system = "x86_64-linux";
-      modules = [ ./configs/installer.nix ];
+      modules = [ ./configs/iso.nix ];
     };
 
     nixosConfigurations.vm-aarch64 = self.lib.mkSystem {
