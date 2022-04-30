@@ -1,5 +1,5 @@
 { self, config, lib, pkgs, home-manager, unstable, ... }: with lib; {
-  options.base.gui =  let inherit(lib) mkOption types; in {
+  options.users.jlogemann.gui =  let inherit(lib) mkOption types; in {
     enable = mkEnableOption "enable very opinionated i3 config";
 
     defaultFont = mkOption {

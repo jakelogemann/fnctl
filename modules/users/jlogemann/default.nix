@@ -72,7 +72,7 @@
           google-chrome 
           alacritty 
           networkmanagerapplet 
-          slack 
+          # slack 
           vscodium
         ])
         (optionals (cfg.operator || cfg.primaryUser) [ 
@@ -93,11 +93,7 @@
           wirelesstools   # tools to manipulate wireless extensions
         ])
         (optionals (hasAttr "fnctl" pkgs) (with pkgs.fnctl; [ 
-          docc
           vim
-        ]))
-        (optionals (hasAttr "do-nixpkgs" pkgs) (with pkgs.do-nixpkgs; [ 
-          /* docc */
         ]))
         (optionals (hasAttr "never-exists" pkgs) (with pkgs.never-exists; [ 
           /* sanity check. */

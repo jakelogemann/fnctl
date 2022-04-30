@@ -4,9 +4,9 @@
   ];
 
   config = {
-    fnctl.enable = true;
-    base.enable = true;
-    base.gui.enable = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
+    fnctl.enable = true;
+    users.jlogemann.enable = true;
+    users.jlogemann.gui.enable = true;
   };
 }

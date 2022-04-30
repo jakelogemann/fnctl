@@ -5,9 +5,11 @@
   imports = [ 
     ../modules/parallels-guest.nix 
     ../modules/fnctl/default.nix
+    ../modules/users/jlogemann/default.nix
   ];
 
   fnctl.enable = true;
+  users.jlogemann.enable = true;
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "nvme" "xhci_pci" "usbhid" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
