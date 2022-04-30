@@ -1,6 +1,6 @@
 # Summary
 
-- [FnCtl/OS](./README.md)
+- [Overview](./README.md)
 - [User Manual](./user/README.md)
 - [Admin's Guide](./admin/README.md)
 - [Development](./dev/README.md)
