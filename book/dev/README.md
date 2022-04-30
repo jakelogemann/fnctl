@@ -1,15 +1,16 @@
 # Development
 
-Start your development each time with the following:
+_**Flake-y goodness**_
+
+Start your development each time by running the following in a terminal (in this project's directory):
 
 ```sh
 nix develop
 ```
 
 All the tools you might need should be pre-installed in the development shell
-we instantiated above. 
+we've instantiated above.
 
-## Flake-y goodness
 
 ### Check yourself
 

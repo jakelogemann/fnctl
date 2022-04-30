@@ -1,11 +1,11 @@
 # Installation
 
-Currently, installation is fairly ambiguous since its currently not well tested.. 
+Currently, installation is fairly ambiguous since its currently not well tested..
 
-Essentially, on a new NixOS host: 
-
+Essentially, on a new NixOS host:
 
 ## Installation Procedure
+
 ```sh
 rm -rf /etc/nixos/* 
 cd /etc/nixos 
@@ -13,6 +13,7 @@ git clone $REPO_URL .
 ```
 
 ### Assumptions
+
 - hostname is `1enovo` and... you know which one...
 - full disk encryption is required.
 - target disk is: `/dev/sda` (builtin is `/dev/nvmen0`).
@@ -21,9 +22,10 @@ git clone $REPO_URL .
 
 But nothing is that simple...
 
-### "Burning" a (_Bootable_) USB stick.
+### "Burning" a (_Bootable_) USB stick
 
 Build the ISO image and link it to ./result:
+
 ```sh
 nix build .#iso
 ```
@@ -46,7 +48,8 @@ dd if=./result/iso/*.iso of=/dev/sda status=progress
 # 1759232+0 records in
 # 1759232+0 records out
 # 900726784 bytes (901 MB, 859 MiB) copied, 323.9 s, 2.8 MB/s
-sync            # forces the disk cache to write (this is the roughly equivant of "safely" in "safely eject")
+sync            # forces the disk cache to write 
+# ^  (this is the roughly equivant of "safely" in "safely eject")
 eject /dev/sda  # fully eject the device.
 ```
 
@@ -98,7 +101,7 @@ lsblk -o name,type,mountpoint,uuid
 #     └─vg-root lvm              f0f2e07f-fbd3-4ef0-8810-dbb68907b448
 # nvme0n1       disk
 
-test -d /mnt || mkdir /mnt       # this dir doesnt exist by default on some *nix systems
+test -d /mnt || mkdir /mnt       # this dir doesnt exist by default on some systems.
 mount /dev/disk/by-uuid/f0f2e07f-fbd3-4ef0-8810-dbb68907b448 /mnt
 mount /dev/disk/by-uuid/8464-2F23 /mnt/boot
 swapon /dev/disk/by-uuid/bc61204b-87fb-4d5a-8191-bf2b8f52fde4
