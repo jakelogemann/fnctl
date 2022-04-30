@@ -89,7 +89,7 @@
     devShell = /* invoke with: `nix develop` */
     self.lib.forEachSupportedSystem (sys: self.packages.${sys}.devShell);
 
-    nixosModules = import ./modules/default.nix;
+    nixosModules = import ./modules/modules.nix;
 
     nixosConfigurations.iso = self.lib.mkSystem {
       system = "x86_64-linux";

@@ -4,8 +4,8 @@
   disabledModules = ["virtualisation/parallels-guest.nix"];
   imports = [ 
     ../modules/parallels-guest.nix 
-    ../modules/fnctl/default.nix
-    ../modules/users/jlogemann/default.nix
+    ../modules/fnctl/fnctl.nix
+    ../modules/users/jlogemann/jlogemann.nix
   ];
 
   fnctl.enable = true;

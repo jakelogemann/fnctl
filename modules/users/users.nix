@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
   imports = [
-    ./jlogemann/default.nix
+    ./jlogemann/jlogemann.nix
   ];
 }
