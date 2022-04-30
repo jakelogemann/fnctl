@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }: with lib; {
 
-  imports = [ 
-  ];
-
   options.fnctl = {
     enable = mkEnableOption "fnctl's custom module(s)";
   };
+
+  imports = [ 
+    ./sysctl.nix
+  ];
 
   config = let cfg = config.fnctl; in mkIf cfg.enable {
     # boot.kernelPackages = pkgs.linuxPackages_latest;

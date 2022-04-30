@@ -1,5 +1,4 @@
 {
-    base = import ./base.nix;
     fnctl = import ./fnctl/default.nix;
     gui = import ./gui/default.nix;
     digitalocean = import ./digitalocean/default.nix;

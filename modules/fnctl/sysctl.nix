@@ -1,20 +1,15 @@
 { config, lib, pkgs, home-manager, unstable, ... }: with lib; {
-  options.base =  let inherit(lib) mkOption types mkEnableOption; in {
-    enable = mkOption {
-      default = true;
-      description = "enable the base configuration";
-      type = types.bool;
-    };
+  options.fnctl.tuneSysCtl = mkOption {
+    default = true;
+    description = "enable the sysctl tweaks configuration";
+    type = types.bool;
   };
 
   config = let 
     cfg = config.base; 
     enabled = cfg.enable; 
-  in mkIf enabled {
-
-
+  in mkIf config.fnctl.tuneSysCtl {
     boot.kernel.sysctl = {
-
       /* increase max socket connections to 100k (default 128). */
       "net.core.somaxconn"            = mkDefault 100000;
 
