@@ -1,4 +1,4 @@
-# FnCtl OS
+# FnCtlOS
 
 <center><img width="256" height"256" src="./assets/logo.png" alt="logo" /></center>
 
