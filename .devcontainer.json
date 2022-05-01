@@ -1,7 +1,7 @@
 {
-  "name": "devcontainer",
-  "remoteUser": "developer",
-  "image": "ghcr.io/lgmn-io/devcontainer:main",
+  "name": "fnctl",
+  // "remoteUser": "developer",
+  "image": "ghcr.io/fnctl/nix:latest",
   "hostRequirements": {
     "cpus": 1,
     "memory": "512mb",
