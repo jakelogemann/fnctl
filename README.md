@@ -1,9 +1,3 @@
-# FnCtl OS
+# ![FnCtl OS](./book/assets/banner.png)
 
-_Hi, friends._
-
-- Documentation can be found [here](./book/SUMMARY.md).
-
-----
-
-![FnCtl OS](./book/assets/banner.png)
+[![Read the Book](https://img.shields.io/badge/-Read_the_Book-blue)](https://fnctl.io)
