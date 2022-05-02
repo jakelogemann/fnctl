@@ -6,6 +6,7 @@
 
   imports = [ 
     ./sysctl.nix
+    ./dnscrypt.nix
   ];
 
   config = let cfg = config.fnctl; in mkIf cfg.enable {

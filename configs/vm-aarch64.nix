@@ -9,6 +9,7 @@
   ];
 
   fnctl.enable = true;
+  fnctl.dns.enable = true;
   users.jlogemann.enable = true;
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "nvme" "xhci_pci" "usbhid" "sr_mod" ];
@@ -160,6 +161,7 @@
     vector
     vifm
     vscodium
+    neovim
     which
     whois
     wireguard-tools
