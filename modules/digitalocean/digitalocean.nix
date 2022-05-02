@@ -5,7 +5,7 @@
   ];
 
   options.digitalocean = {
-    enable = mkEnableOption "internal digitalocean module(s)";
+    enable = mkEnableOption "stub for hypothetical future internal digitalocean module(s).";
   };
 
   config = let cfg = config.digitalocean; in mkIf cfg.enable {
