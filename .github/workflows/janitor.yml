@@ -58,7 +58,7 @@ jobs:
       issues: write
     steps:
     - name: close stale issues.
-      uses: actions/stale@1.0.0
+      uses: actions/stale@v5.0.0
       with:
         # Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
