@@ -1,11 +1,13 @@
-name: Maintenance
+name: janitor
 
 on:
   workflow_dispatch:
   workflow_call:
   issues:
+    types: ["opened"]
   issue_comment:
   pull_request:
+    types: ["opened"]
   schedule:
     - cron: '0 0 * * *'
     - cron: '0 12 * * *'
@@ -13,22 +15,28 @@ on:
 jobs:
 
   triage:
-    if: "${{ includes(['issues', 'pull_requests'], github.event_name) }}"
+    if: "${{ github.event_name == 'pull_requests' }}"
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-      issues: write
     steps:
-    - name: apply labels automatically. 
-      if: "${{ includes(['pull_requests'], github.event_name) }}"
+    - name: label pull-request automatically. 
       uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         sync-labels: true
 
+  greet:
+    if: "${{ github.event_name == 'issues' || github.event_name == 'pull_requests' }}"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps: 
     - name: make sure new users feel welcome!
-      if: "${{ includes(['issues', 'pull_requests'], github.event_name) }}"
+      if: "${{ github.event_name == 'issues' || github.event_name == 'pull_requests' }}"
       uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -41,16 +49,15 @@ jobs:
 
           @fnctl
 
-  sweep:
+  stale:
     runs-on: ubuntu-latest
-    if: "${{ includes(['schedule', 'workflow_dispatch'], github.event_name) }}"
+    if: "${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}"
     permissions:
       contents: read
       pull-requests: write
       issues: write
     steps:
     - name: close stale issues.
-      if: "${{ includes(['schedule', 'workflow_dispatch'], github.event_name) }}"
       uses: actions/stale@1.0.0
       with:
         # Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}
