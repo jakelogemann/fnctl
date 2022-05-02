@@ -8,11 +8,11 @@
   };
 
   config = let cfg = config.fnctl.dns; in mkIf cfg.enable {
-    networking.nameservers = [ "127.0.0.1" "::1" ];
-    networking.resolvconf.enable = false;
-    networking.dhcpcd.extraConfig = "nohook resolv.conf" /* optional */;
-    networking.networkmanager.dns = "none" /* optional */;
-    services.dnscrypt-proxy2.enable = true;
+    networking.nameservers = mkForce [ "127.0.0.1" "::1" ];
+    networking.resolvconf.enable = mkForce false;
+    networking.dhcpcd.extraConfig = mkForce "nohook resolv.conf" /* optional */;
+    networking.networkmanager.dns = mkForce "none" /* optional */;
+    services.dnscrypt-proxy2.enable = mkForce true;
     services.dnscrypt-proxy2.settings = {
       ipv6_servers = true;
       ipv4_servers = true;

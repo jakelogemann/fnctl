@@ -4,8 +4,8 @@
   disabledModules = ["virtualisation/parallels-guest.nix"];
   imports = [ 
     ../modules/parallels-guest.nix 
-    ../modules/fnctl/fnctl.nix
-    ../modules/users/jlogemann/jlogemann.nix
+    # ../modules/fnctl/fnctl.nix
+    # ../modules/users/jlogemann/jlogemann.nix
   ];
 
   fnctl.enable = true;
@@ -23,6 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
   hardware.pulseaudio.enable = true; 
+  nixpkgs.config.allowUnsupportedSystem = true;
   hardware.video.hidpi.enable = true;
   services.xserver.libinput.enable = true;
   system.stateVersion = "22.05"; 
@@ -43,8 +44,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    fnctl.vim
-
     alacritty kitty
     binutils
     chromium

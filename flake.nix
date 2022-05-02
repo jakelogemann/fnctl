@@ -15,16 +15,7 @@
 
     /* Overlay
     **  This determines what should be "overlay"-ed on top of "pkgs" when this
-    **  flake is used. The spec allows for multiple overlays, I find that
-    **  confusing, so for now only one (thus the names final/prev instead of self/super). */
-    overlays.default = (final: prev: let inherit (prev) system; in { 
-      unstable = unstable.legacyPackages.${system};
-      home-manager = home-manager.packages.${system};
-      nixos-generators = nixos-generators.packages.${system}.nixos-generators;
-      fnctl = self.packages.${system} // {
-        iso = self.lib.nixosGenerateAll { inherit system; modules = [ ./configs/iso.nix ]; };
-      };
-    });
+    **  flake is used. */ overlays.fnctl = import ./pkgs/overlay.nix;
 
     /* Library [Functions]
     **  These are small, "discrete", helper functions which are used throughout
@@ -78,7 +69,7 @@
         
     apps = /* all apps exposed; per system. invoke with `nix run .#nvim` */
     (self.lib.forEachSupportedSystem (system: with self.packages.${system}; rec {
-      vim  = { type = "app"; program = "${nvim}/bin/vim"; };
+      vim  = { type = "app"; program = "${vim}/bin/vim"; };
       default = vim;
     }));
 

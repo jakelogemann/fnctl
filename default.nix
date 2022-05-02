@@ -1,9 +1,8 @@
-let
-  hostName = with builtins; head (split "\n" (readFile /etc/hostname));
-  pwd = builtins.getEnv "PWD";
-in { 
+{ 
+  name ? (with builtins; head (split "\n" (readFile /etc/hostname))),
+  pwd ? builtins.getEnv "PWD",
   flake ? builtins.getFlake pwd,
-  self ? flake.outputs.nixosConfigurations."${hostName}",
+  self ? flake.outputs.nixosConfigurations."${name}",
   ...
 }@args: 
 
