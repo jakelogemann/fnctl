@@ -44,6 +44,10 @@ jobs:
   sweep:
     runs-on: ubuntu-latest
     if: "${{ includes(['schedule', 'workflow_dispatch'], github.event_name) }}"
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
     steps:
     - name: close stale issues.
       if: "${{ includes(['schedule', 'workflow_dispatch'], github.event_name) }}"
