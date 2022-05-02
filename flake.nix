@@ -21,9 +21,8 @@
       unstable = unstable.legacyPackages.${system};
       home-manager = home-manager.packages.${system};
       nixos-generators = nixos-generators.packages.${system}.nixos-generators;
-      jlogemann = {
-        vim = self.packages.${system}.vim;
-        installer = self.lib.nixosGenerateAll { inherit system; modules = [ ./configs/installer.nix ]; };
+      fnctl = self.packages.${system} // {
+        iso = self.lib.nixosGenerateAll { inherit system; modules = [ ./configs/iso.nix ]; };
       };
     });
 
@@ -74,7 +73,7 @@
     /* NOTE: packages are per system type. */ 
     packages = with self.lib; forEachSupportedSystem (system: {
       devShell = (callPackage system) ./pkgs/devShell.nix {};
-      vim      = (callPackage system) ./pkgs/jlogemann/vim/default.nix {};
+      vim      = (callPackage system) ./pkgs/vim/default.nix {};
     });
         
     apps = /* all apps exposed; per system. invoke with `nix run .#nvim` */

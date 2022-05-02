@@ -10,3 +10,28 @@ build-dir = "public"              # the directory where the output is placed
 create-missing = false            # whether or not to create missing pages
 use-default-preprocessors = true  # use the default preprocessors
 
+[output.html]
+preferred-dark-theme = "ayu"
+curly-quotes         = true
+default-theme        = "ayu"
+git-repository-icon  = "fa-code"
+git-repository-url   = "https://github.com/fnctl/fnctl"
+mathjax-support      = true
+no-section-label     = false
+#theme                = ".mdbook/theme"
+
+[output.html.fold]
+enable = true    # Doesn't work yet?
+level = 1
+
+[output.html.search]
+enable               = false
+limit-results        = 10
+# teaser-word-count    = 0
+# use-boolean-and      = true
+# boost-title          = 1000
+# boost-hierarchy      = 100
+# boost-paragraph      = 0
+# expand               = true
+# heading-split-level  = 3
+# copy-js              = true
