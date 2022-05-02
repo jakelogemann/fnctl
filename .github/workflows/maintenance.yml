@@ -21,7 +21,7 @@ jobs:
       issues: write
     steps:
     - name: apply labels automatically. 
-      if: "${{ includes(['issues', 'pull_requests'], github.event_name) }}"
+      if: "${{ includes(['pull_requests'], github.event_name) }}"
       uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
