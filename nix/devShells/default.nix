@@ -16,10 +16,10 @@ in
   mkShell {
     name = "fnctl";
     buildInputs = [
-        (writeShellScriptBin "fmt" "exec alejandra -q \"$@\"")
-        (writeShellScriptBin "repl" "exec nix repl \"$@\" ${repl}")
-        alejandra
-        fnctl.devShell-common
-        nix
+      (writeShellScriptBin "fmt" "exec alejandra -q \"$@\"")
+      (writeShellScriptBin "repl" "exec nix repl \"$@\" ${repl}")
+      alejandra
+      fnctl.devShell-common
+      nix
     ];
   }

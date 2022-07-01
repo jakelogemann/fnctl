@@ -1,0 +1,14 @@
+/hardware-configuration.nix
+result
+**/flake.lock
+*.qcow2
+*.swp
+*.swo
+/vendor
+/public
+.DS_Store
+*~
+*.log
+.direnv
+.pre-commit-config.yaml
+.envrc

@@ -7,5 +7,3 @@ with (self.lib.pkgsForSystem' system);
       rustup
     ];
   }
-
-

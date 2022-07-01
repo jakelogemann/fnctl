@@ -1,4 +1,6 @@
-self: with builtins; with self.inputs.nixpkgs.lib; let
+self:
+with builtins;
+with self.inputs.nixpkgs.lib; let
   validNixFile = path': type': !hasPrefix "." path' && !hasPrefix "_" path' && hasSuffix ".nix" path' && type' == "regular";
   filter = path': type': (validNixFile path' type') || type' == "directory";
   namesFromContents = contents: map (f: replaceStrings [".nix"] [""] (toString f)) (attrNames (readDir contents));

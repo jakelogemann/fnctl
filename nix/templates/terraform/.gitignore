@@ -1,0 +1,4 @@
+.envrc*
+!.envrc.example
+.direnv/*
+.terraform/*

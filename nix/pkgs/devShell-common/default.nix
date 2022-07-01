@@ -1,7 +1,12 @@
-{pkgs, symlinkJoin, ...}:
+{
+  pkgs,
+  symlinkJoin,
+  ...
+}:
 symlinkJoin {
-    name = "devShell-common";
-    paths = with pkgs; [
+  name = "devShell-common";
+  paths = with pkgs;
+    [
       bat
       gh
       gitMinimal
@@ -9,7 +14,8 @@ symlinkJoin {
       nix-direnv
       pass
       ripgrep
-    ] ++ (lib.mapAttrsToList (i: o: writeShellScriptBin i "exec ${o} \"$@\"") {
+    ]
+    ++ (lib.mapAttrsToList (i: o: writeShellScriptBin i "exec ${o} \"$@\"") {
       gs = "git status";
       gd = "git diff";
       grs = "git reset";
@@ -19,4 +25,4 @@ symlinkJoin {
       ll = "ls -lAh";
       l1 = "ls -1A";
     });
-  }
+}

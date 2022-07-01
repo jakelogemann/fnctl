@@ -1,6 +1,4 @@
-self: 
-
-let
+self: let
   nixpkgs = self.inputs.nixpkgs;
   nixosSystem = nixpkgs.lib.nixosSystem;
   lib = nixpkgs.lib // self.lib;
