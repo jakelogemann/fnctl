@@ -61,7 +61,7 @@ jobs:
         pr-message: "Hey! Thanks for the PR to @fnctl!"
         issue-message: "Hey! Thanks for the Issue! We'll get right on that and get back to you."
     - name: close stale issues & pull-requests (when triggered, explicitly).
-      uses: actions/stale@v5.0.0
+      uses: actions/stale@v6.0.1
       if: ${{ contains('workflow_call;workflow_dispatch;schedule;', github.event_name) }}
       with:
         # Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}
