@@ -39,7 +39,7 @@ jobs:
         if-no-files-found: ignore
 
     - name: apply labels (if applicable)
-      uses: actions/labeler@v4
+      uses: actions/labeler@v5
       if: "${{ github.event_name == 'pull_requests' }}"
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
